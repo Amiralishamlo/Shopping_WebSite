@@ -17,9 +17,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructures\Shop.Infrastructure\Shop.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructures\Shop.Persistence\Shop.Persistence.csproj" />
   </ItemGroup>
 

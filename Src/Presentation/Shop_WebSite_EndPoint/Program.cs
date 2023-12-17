@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Shop.Infrastructure.IdentityConfig;
 using Shop.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,8 +9,20 @@ builder.Services.AddControllersWithViews();
 
 #region Connection string
 builder.Services.AddDbContext<DataBaseContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Shop_Sql")));
-builder.Services.AddDbContext<IdentitysDatabaseContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Shop_Sql")));
 #endregion
+
+#region Identity
+builder.Services.AddIdentityService(builder.Configuration);
+builder.Services.AddAuthorization();
+builder.Services.ConfigureApplicationCookie(option =>
+{
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+    option.LoginPath = "/account/login";
+    option.AccessDeniedPath = "/Account/AccessDenied";
+    option.SlidingExpiration = true;
+});
+#endregion
+
 
 var app = builder.Build();
 
@@ -26,6 +39,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
