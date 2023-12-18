@@ -1,6 +1,11 @@
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Shop.Application.Interfaces.Contexts;
+using Shop.Application.Visitors.SaveVisitorInfo;
 using Shop.Infrastructure.IdentityConfig;
 using Shop.Persistence.Context;
+using Shop.Persistence.Context.MongoContext;
+using Shop_WebSite_EndPoint.Utilities.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +27,13 @@ builder.Services.ConfigureApplicationCookie(option =>
     option.SlidingExpiration = true;
 });
 #endregion
+
+#region Add_service
+builder.Services.AddTransient(typeof(IMongoDbContext<>), typeof(MongoDbContext<>));
+builder.Services.AddTransient<ISaveVisitorInfoService, SaveVisitorInfoService>();
+builder.Services.AddScoped<SaveVisitorFilter>();
+#endregion
+
 
 
 var app = builder.Build();

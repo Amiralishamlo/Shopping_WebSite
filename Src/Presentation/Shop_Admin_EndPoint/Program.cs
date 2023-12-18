@@ -15,7 +15,6 @@ builder.Services.ConfigureApplicationCookie(option =>
 	option.SlidingExpiration = true;
 });
 #endregion
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
