@@ -25,7 +25,9 @@ namespace Shop.Application.Visitors.SaveVisitorInfo
                 Method=request.Method,
                 PhysicalPath=request.PhysicalPath,
                 Protocol=request.Protocol,
-                RefeeereLink = request.RefeeereLink
+                RefeeereLink = request.RefeeereLink,
+                Time=request.Time,
+                VisitorId=request.VisitorId,
             });
         }
     }

@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Persistence", "Src\Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop_WebSite_EndPoint", "Src\Presentation\Shop_WebSite_EndPoint\Shop_WebSite_EndPoint.csproj", "{B960A6DF-4007-4525-96BD-F8C3285C6448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop_Admin_EndPoint", "Src\Presentation\Shop_Admin_EndPoint\Shop_Admin_EndPoint.csproj", "{39B914E5-444D-4C80-8A88-EE2AD780D122}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop_Admin_EndPoint", "Src\Presentation\Shop_Admin_EndPoint\Shop_Admin_EndPoint.csproj", "{39B914E5-444D-4C80-8A88-EE2AD780D122}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="7.0.14" />
+    <PackageReference Include="MongoDB.Bson" Version="2.23.1" />
   </ItemGroup>
 
 </Project>

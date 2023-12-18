@@ -1,4 +1,7 @@
+using Shop.Application.Interfaces.Contexts;
+using Shop.Application.Visitors.GetTodayReport;
 using Shop.Infrastructure.IdentityConfig;
+using Shop.Persistence.Context.MongoContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,12 @@ builder.Services.ConfigureApplicationCookie(option =>
 	option.SlidingExpiration = true;
 });
 #endregion
+builder.Services.AddTransient(typeof(IMongoDbContext<>), typeof(MongoDbContext<>));
+
+#region Add_Service
+builder.Services.AddTransient<IGetTodayReportService, GetTodayReportService>();
+#endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
