@@ -1,9 +1,11 @@
-﻿using Shop.Domain.Visitors;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Shop.Application.Visitors.SaveVisitorInfo
 {
     public interface ISaveVisitorInfoService
     {
-        void Execute(RequestSaveVisitorDto request);
+        void Execute(RequestSaveVisitorInfoDto request);
     }
 }

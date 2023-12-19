@@ -2,6 +2,7 @@
 {
     public interface IGetTodayReportService
     {
-        ResultTodayRepotDto Execute();
+        ResultTodayReportDto Execute();
     }
+
 }

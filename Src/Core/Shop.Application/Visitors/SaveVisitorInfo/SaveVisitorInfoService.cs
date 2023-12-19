@@ -1,33 +1,50 @@
-﻿using MongoDB.Driver;
+﻿
+using MongoDB.Driver;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Domain.Visitors;
+using System;
+
 namespace Shop.Application.Visitors.SaveVisitorInfo
 {
     public class SaveVisitorInfoService : ISaveVisitorInfoService
     {
         private readonly IMongoDbContext<Visitor> _mongoDbContext;
         private readonly IMongoCollection<Visitor> _visitorMongoCollection;
+
         public SaveVisitorInfoService(IMongoDbContext<Visitor> mongoDbContext)
         {
             _mongoDbContext = mongoDbContext;
             _visitorMongoCollection = _mongoDbContext.GetCollection();
         }
-
-        public void Execute(RequestSaveVisitorDto request)
+        public void Execute(RequestSaveVisitorInfoDto request)
         {
             _visitorMongoCollection.InsertOne(new Visitor
             {
-                Browser=new VisitorVersion { Family=request.Browser.Family, Version=request.Browser.Version},
-                OperationSystem = new VisitorVersion { Family = request.Browser.Family, Version = request.Browser.Version },
-                Device=new Device { Brand=request.Device.Brand,IsSpider=request.Device.IsSpider,Model=request.Device.Model, Family = request.Device.Family },
-                CurrentLink=request.CurrentLink,
-                Ip=request.Ip,
-                Method=request.Method,
-                PhysicalPath=request.PhysicalPath,
-                Protocol=request.Protocol,
-                RefeeereLink = request.RefeeereLink,
-                Time=request.Time,
-                VisitorId=request.VisitorId,
+                Browser = new VisitorVersion
+                {
+                    Family = request.Browser.Family,
+                    Version = request.Browser.Version,
+                },
+                CurrentLink = request.CurrentLink,
+                Device = new Device
+                {
+                    Brand = request.Device.Brand,
+                    Family = request.Device.Family,
+                    IsSpider = request.Device.IsSpider,
+                    Model = request.Device.Model
+                },
+                Ip = request.Ip,
+                Method = request.Method,
+                OperationSystem = new VisitorVersion
+                {
+                    Family = request.OperationSystem.Family,
+                    Version = request.OperationSystem.Version
+                },
+                PhysicalPath = request.PhysicalPath,
+                Protocol = request.Protocol,
+                ReferrerLink = request.ReferrerLink,
+                VisitorId = request.VisitorId,
+                Time = DateTime.Now,
             });
         }
     }

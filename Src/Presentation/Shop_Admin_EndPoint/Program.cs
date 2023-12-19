@@ -1,5 +1,6 @@
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Visitors.GetTodayReport;
+using Shop.Application.Visitors.VisitorOnline;
 using Shop.Infrastructure.IdentityConfig;
 using Shop.Persistence.Context.MongoContext;
 
@@ -22,6 +23,7 @@ builder.Services.AddTransient(typeof(IMongoDbContext<>), typeof(MongoDbContext<>
 
 #region Add_Service
 builder.Services.AddTransient<IGetTodayReportService, GetTodayReportService>();
+builder.Services.AddTransient<IVisitorOnlineService, VisitorOnlineService>();
 #endregion
 
 var app = builder.Build();

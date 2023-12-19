@@ -2,9 +2,10 @@
 {
     public class TodayDto
     {
-        public long PageView { get; set; }
-        public long Visitor { get; set; }
+        public long PageViews { get; set; }
+        public long Visitors { get; set; }
         public float ViewsPerVisitor { get; set; }
         public VisitCountDto VisitPerhour { get; set; }
     }
+
 }

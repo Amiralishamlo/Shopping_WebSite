@@ -7,48 +7,69 @@ namespace Shop.Application.Visitors.GetTodayReport
     public class GetTodayReportService : IGetTodayReportService
     {
         private readonly IMongoDbContext<Visitor> _mongoDbContext;
-        private readonly IMongoCollection<Visitor> _mongoCollection;
-
+        private readonly IMongoCollection<Visitor> visitorMongoCollection;
         public GetTodayReportService(IMongoDbContext<Visitor> mongoDbContext)
         {
             _mongoDbContext = mongoDbContext;
-            _mongoCollection = _mongoDbContext.GetCollection();
+            visitorMongoCollection = _mongoDbContext.GetCollection();
         }
-
-        public ResultTodayRepotDto Execute()
+        public ResultTodayReportDto Execute()
         {
-            DateTime Start=DateTime.Now.Date;
-            DateTime End = DateTime.Now.AddDays(1);
+            DateTime start = DateTime.Now.Date;
+            DateTime end = DateTime.Now.AddDays(1);
 
-            var TodayPageViewCount= _mongoCollection.AsQueryable()
-                .Where(x=>x.Time>Start && x.Time<End).LongCount();
-            var TodayVisitorCount = _mongoCollection.AsQueryable()
-            .Where(x => x.Time > Start && x.Time < End).GroupBy(x=>x.VisitorId).LongCount();
+            var TodayPageViewCount = visitorMongoCollection.AsQueryable()
+                .Where(p => p.Time >= start && p.Time < end).LongCount();
+            var TodayVisitorCount = visitorMongoCollection.AsQueryable()
+                .Where(p => p.Time >= start && p.Time < end).GroupBy(p => p.VisitorId)
+                .LongCount();
+            var AllPageViewCount = visitorMongoCollection.AsQueryable().LongCount();
+            var AllVisitorCount = visitorMongoCollection.AsQueryable()
+                .GroupBy(p => p.VisitorId).LongCount();
 
-            var AllPageViewCount=_mongoCollection.AsQueryable().LongCount();
-            var AllVisitorCount = _mongoCollection.AsQueryable().GroupBy(x=>x.VisitorId).LongCount();
+            VisitCountDto visitPerHour = GTetVisitPerHour(start, end);
 
-            return new ResultTodayRepotDto
-            {
-                Today = new TodayDto
+            VisitCountDto visitPerDay = GetVisitPerDay();
+
+
+            var visitors = visitorMongoCollection.AsQueryable()
+                .OrderByDescending(p => p.Time)
+                .Take(10)
+                .Select(p => new VisitorsDto
                 {
-                    PageView = TodayPageViewCount,
-                    Visitor = TodayVisitorCount,
-                    ViewsPerVisitor = GetAvg(AllPageViewCount,AllVisitorCount),
-                    VisitPerhour= GTetVisitPerHour(Start,End),
-                },
+                    Id = p.Id,
+                    Browser = p.Browser.Family,
+                    CurrentLink = p.CurrentLink,
+                    Ip = p.Ip,
+                    OperationSystem = p.OperationSystem.Family,
+                    IsSpider = p.Device.IsSpider,
+                    ReferrerLink = p.ReferrerLink,
+                    Time = p.Time,
+                    VisitorId = p.VisitorId
+                }).ToList();
+            return new ResultTodayReportDto
+            {
                 GeneralStats = new GeneralStatsDto
                 {
-                    TotalPageViews=AllPageViewCount,
-                    TotalVisitor=AllVisitorCount,
-                    PageViewPerVisit= GetAvg(AllPageViewCount,AllVisitorCount),
-                    VisitPerDay = GetVisitPerDay()
-                }
+                    TotalVisitors = AllVisitorCount,
+                    TotalPageViews = AllPageViewCount,
+                    PageViewsPerVisit = GetAvg(AllPageViewCount, AllVisitorCount),
+                    VisitPerDay = visitPerDay,
+                },
+                Today = new TodayDto
+                {
+                    PageViews = TodayPageViewCount,
+                    Visitors = TodayVisitorCount,
+                    ViewsPerVisitor = GetAvg(TodayPageViewCount, TodayVisitorCount),
+                    VisitPerhour = visitPerHour,
+                },
+                visitors = visitors,
             };
         }
+
         private VisitCountDto GTetVisitPerHour(DateTime start, DateTime end)
         {
-            var TodayPageViewList = _mongoCollection.AsQueryable().Where(
+            var TodayPageViewList = visitorMongoCollection.AsQueryable().Where(
               p => p.Time >= start && p.Time < end)
                 .Select(p => new { p.Time }).ToList();
 
@@ -71,7 +92,7 @@ namespace Shop.Application.Visitors.GetTodayReport
         {
             DateTime MonthStart = DateTime.Now.Date.AddDays(-30);
             DateTime MonthEnds = DateTime.Now.Date.AddDays(1);
-            var Month_PageViewList = _mongoCollection.AsQueryable()
+            var Month_PageViewList = visitorMongoCollection.AsQueryable()
                 .Where(p => p.Time >= MonthStart && p.Time < MonthEnds)
                 .Select(p => new { p.Time })
                 .ToList();
@@ -85,16 +106,18 @@ namespace Shop.Application.Visitors.GetTodayReport
 
             return visitPerDay;
         }
-        private float GetAvg(long visitPage,long visitor)
+
+        private float GetAvg(long VisitPage, long Visitor)
         {
-            if(visitor == 0)
+            if (Visitor == 0)
             {
                 return 0;
             }
             else
             {
-                return visitPage / visitor;
+                return VisitPage / Visitor;
             }
         }
     }
+
 }

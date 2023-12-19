@@ -26,8 +26,25 @@
                                 </div>
                             </div>
                             <div class="t-name">
+                                <h4>تعداد کاربران انلاین سایت</h4>
+                                <p class="meta-date"> @Model.OnlineUserCount</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="transactions-list">
+                    <div class="t-item">
+                        <div class="t-company-name">
+                            <div class="t-icon">
+                                <div class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                            </div>
+                            <div class="t-name">
                                 <h4>تعداد بازدید </h4>
-                                <p class="meta-date"> @Model.ResultTodayReport.Today.PageView</p>
+                                <p class="meta-date"> @Model.ResultTodayReport.Today.PageViews</p>
                             </div>
 
                         </div>
@@ -44,7 +61,7 @@
                             </div>
                             <div class="t-name">
                                 <h4>تعداد بازدید کنندگان</h4>
-                                <p class="meta-date"> @Model.ResultTodayReport.Today.Visitor</p>
+                                <p class="meta-date"> @Model.ResultTodayReport.Today.Visitors</p>
                             </div>
 
                         </div>
@@ -108,7 +125,7 @@
                             </div>
                             <div class="t-name">
                                 <h4>تعداد بازدید کنندگان</h4>
-                                <p class="meta-date"> @Model.ResultTodayReport.GeneralStats.TotalVisitor</p>
+                                <p class="meta-date"> @Model.ResultTodayReport.GeneralStats.TotalVisitors</p>
                             </div>
 
                         </div>
@@ -126,7 +143,7 @@
                             </div>
                             <div class="t-name">
                                 <h4>بازدید از صفحه در هر بازدید </h4>
-                                <p class="meta-date"> @Model.ResultTodayReport.GeneralStats.PageViewPerVisit</p>
+                                <p class="meta-date"> @Model.ResultTodayReport.GeneralStats.PageViewsPerVisit</p>
                             </div>
 
                         </div>
@@ -161,7 +178,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @* @foreach (var item in Model.ResultTodayReport.visitors)
+                            @foreach (var item in Model.ResultTodayReport.visitors)
                             {
                                 <tr>
                                     <td><div class="td-content product-brand">@item.Ip</div></td>
@@ -189,7 +206,7 @@
                                     <td><div class="td-content"><span class="badge outline-badge-primary">@item.VisitorId</span></div></td>
 
                                 </tr>
-                            } *@
+                            }
 
 
                         </tbody>
