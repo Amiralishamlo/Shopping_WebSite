@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Shop.Persistence.Migrations.IdentitysDatabase
 {
     /// <inheritdoc />
-    public partial class updateuser : Migration
+    public partial class Initss : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

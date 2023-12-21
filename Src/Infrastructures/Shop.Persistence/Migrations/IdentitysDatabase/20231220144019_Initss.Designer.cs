@@ -12,8 +12,8 @@ using Shop.Persistence.Context;
 namespace Shop.Persistence.Migrations.IdentitysDatabase
 {
     [DbContext(typeof(IdentitysDatabaseContext))]
-    [Migration("20231217110043_update-user")]
-    partial class updateuser
+    [Migration("20231220144019_Initss")]
+    partial class Initss
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

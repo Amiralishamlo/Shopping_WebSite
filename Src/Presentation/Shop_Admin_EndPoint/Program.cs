@@ -1,13 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Shop.Application.Catalogs.CatalogTypes;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Visitors.GetTodayReport;
 using Shop.Application.Visitors.VisitorOnline;
 using Shop.Infrastructure.IdentityConfig;
+using Shop.Infrastructure.MappingProfile;
+using Shop.Persistence.Context;
 using Shop.Persistence.Context.MongoContext;
+using Shop_Admin_EndPoint.MappingProfiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+#region Connection string
+builder.Services.AddTransient<IDataBaseContext, DataBaseContext>();
+builder.Services.AddDbContext<DataBaseContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Shop_Sql")));
+#endregion
 #region Identity
 builder.Services.AddIdentityService(builder.Configuration);
 builder.Services.AddAuthorization();
@@ -18,12 +27,18 @@ builder.Services.ConfigureApplicationCookie(option =>
 	option.AccessDeniedPath = "/Account/AccessDenied";
 	option.SlidingExpiration = true;
 });
+
 #endregion
 builder.Services.AddTransient(typeof(IMongoDbContext<>), typeof(MongoDbContext<>));
 
 #region Add_Service
 builder.Services.AddTransient<IGetTodayReportService, GetTodayReportService>();
 builder.Services.AddTransient<IVisitorOnlineService, VisitorOnlineService>();
+builder.Services.AddTransient<ICatalogService, CatalogService>();
+#endregion
+#region Mapper_Service
+builder.Services.AddAutoMapper(typeof(CatalogMappingProfile));
+builder.Services.AddAutoMapper(typeof(CatalogVMMappingProfile));
 #endregion
 
 var app = builder.Build();
