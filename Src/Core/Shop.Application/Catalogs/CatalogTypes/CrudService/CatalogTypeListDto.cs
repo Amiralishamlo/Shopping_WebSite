@@ -1,4 +1,4 @@
-﻿namespace Shop.Application.Catalogs.CatalogTypes
+﻿namespace Shop.Application.Catalogs.CatalogTypes.CrudService
 {
     public class CatalogTypeListDto
     {

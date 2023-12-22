@@ -4,13 +4,13 @@ using Shop.Application.Dtos;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Domain.Catalogs;
 
-namespace Shop.Application.Catalogs.CatalogTypes
+namespace Shop.Application.Catalogs.CatalogTypes.CrudService
 {
     public class CatalogService : ICatalogService
     {
         private readonly IDataBaseContext _context;
         private readonly IMapper _mapper;
-        public CatalogService(IDataBaseContext context,IMapper mapper)
+        public CatalogService(IDataBaseContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -18,24 +18,24 @@ namespace Shop.Application.Catalogs.CatalogTypes
 
         public BaseDto<CatalogTypeDto> Add(CatalogTypeDto catalogType)
         {
-            var model=_mapper.Map<CatalogType>(catalogType);
+            var model = _mapper.Map<CatalogType>(catalogType);
             _context.CatalogTypes.Add(model);
             _context.SaveChanges();
-            return new BaseDto<CatalogTypeDto>(_mapper.Map<CatalogTypeDto>(model),new List<string> { $"تایپ {model.Type}  با موفقیت در سیستم ثبت شد" }, true);
+            return new BaseDto<CatalogTypeDto>(_mapper.Map<CatalogTypeDto>(model), new List<string> { $"تایپ {model.Type}  با موفقیت در سیستم ثبت شد" }, true);
         }
 
         public BaseDto<CatalogTypeDto> Edit(CatalogTypeDto catalogType)
         {
-            var model=_context.CatalogTypes.SingleOrDefault(x=>x.Id==catalogType.Id);
-            _mapper.Map(catalogType,model);
+            var model = _context.CatalogTypes.SingleOrDefault(x => x.Id == catalogType.Id);
+            _mapper.Map(catalogType, model);
             _context.SaveChanges();
-            return new BaseDto<CatalogTypeDto>(_mapper.Map<CatalogTypeDto>(model),new List<string> { $"تایپ {model.Type} با موفقیت ویرایش شد" },true);
+            return new BaseDto<CatalogTypeDto>(_mapper.Map<CatalogTypeDto>(model), new List<string> { $"تایپ {model.Type} با موفقیت ویرایش شد" }, true);
         }
 
         public BaseDto<CatalogTypeDto> FindById(int Id)
         {
             var data = _context.CatalogTypes.Find(Id);
-            var result=_mapper.Map<CatalogTypeDto>(data);
+            var result = _mapper.Map<CatalogTypeDto>(data);
             return new BaseDto<CatalogTypeDto>(result, null, true);
         }
 

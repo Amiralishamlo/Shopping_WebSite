@@ -1,6 +1,6 @@
 ﻿using Shop.Application.Dtos;
 
-namespace Shop.Application.Catalogs.CatalogTypes
+namespace Shop.Application.Catalogs.CatalogTypes.CrudService
 {
     public interface ICatalogService
     {
@@ -8,6 +8,6 @@ namespace Shop.Application.Catalogs.CatalogTypes
         BaseDto Remove(int Id);
         BaseDto<CatalogTypeDto> Edit(CatalogTypeDto catalogType);
         BaseDto<CatalogTypeDto> FindById(int Id);
-        PaginatedItemsDto<CatalogTypeListDto> GetList(int? parentId,int page,int pageSize);
+        PaginatedItemsDto<CatalogTypeListDto> GetList(int? parentId, int page, int pageSize);
     }
 }

@@ -1,7 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Shop.Application.Catalogs.CatalogTypes;
+using Shop.Application.Catalogs.CatalogTypes.CrudService;
 using Shop_Admin_EndPoint.ViewModels.Catalogs;
 
 namespace Shop_Admin_EndPoint.Pages.CatalogType

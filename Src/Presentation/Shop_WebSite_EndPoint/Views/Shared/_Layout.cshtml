@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]  - فروشگاه  </title>
+    <title>@ViewData["Title"]  - فروشگاه باگتو </title>
     <!-- font-awesome -->
     <link rel="stylesheet" href="~/Theme/assets/css/font-awesome.min.css">
     <!-- Bootstrap 4.5.3 -->
@@ -179,10 +179,7 @@
                             </ul>
                         </div>
                         <div class="user-item account">
-                            <!-- <a href="#" class="btn-auth">
-                                <i class="fal fa-user-circle"></i>
-                                ورود و عضویت
-                            </a> -->
+
                             <a href="#">
                                 نام کاربر
                                 <i class="fad fa-chevron-down text-sm mr-1"></i>
@@ -237,559 +234,20 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <nav class="nav-wrapper">
                     <ul>
                         <li class="category-list">
                             <a href="#"><i class="fal fa-bars"></i>دسته بندی کالاها</a>
-                            <ul>
-                                <li>
-                                    <a href="#">کالای دیجیتال</a>
-                                    <ul class="row">
-                                        <li class="col-12"><a href="#">همه دسته‌بندی‌های کالای دیجیتال</a></li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#" class="list-item--image my-3">
-                                                <img src="~/Theme/assets/images/mega-menu/01.jpg" class="img-fluid rounded"
-                                                     alt="">
-                                            </a>
-                                            <a href="#">برندها</a>
-                                            <ul class="d-flex my-3">
-                                                <li>
-                                                    <a href="#" class="list-item--image ml-1 border rounded p-1">
-                                                        <img src="~/Theme/assets/images/mega-menu/brand-1.jpg"
-                                                             class="img-fluid rounded" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="list-item--image ml-1 border rounded p-1">
-                                                        <img src="~/Theme/assets/images/mega-menu/brand-2.jpg"
-                                                             class="img-fluid rounded" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="list-item--image ml-1 border rounded p-1">
-                                                        <img src="~/Theme/assets/images/mega-menu/brand-3.jpg"
-                                                             class="img-fluid rounded" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">خودرو، ابزار و تجهیزات صنعتی</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های خودرو، ابزار و تجهیزات صنعتی</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">مد و پوشاک</a>
-                                    <ul class="row">
-                                        <li class="col-12"><a href="#">همه دسته‌بندی‌های کالای دیجیتال</a></li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">زیبایی و سلامت</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های زیبایی و سلامت</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">خانه و آشپزخانه</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های خانه و آشپزخانه</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">کتاب، لوازم تحریر و هنر</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های کتاب، لوازم تحریر و هنر</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">اسباب بازی، کودک و نوزاد</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های اسباب بازی، کودک و نوزاد</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">ورزش و سفر</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های ورزش و سفر</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">خوردنی و آشامیدنی</a>
-                                    <ul class="row">
-                                        <li class="col-12">
-                                            <a href="#">همه دسته بندی های خوردنی و آشامیدنی</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">لوازم جانبی گوشی</a>
-                                            <ul>
-                                                <li><a href="#">کیف و کاور گوشی</a></li>
-                                                <li><a href="#">پاور بانک (شارژر همراه)</a></li>
-                                                <li><a href="#">پایه نگهدارنده گوشی</a></li>
-                                            </ul>
-                                            <a href="#">گوشی موبایل</a>
-                                            <ul>
-                                                <li><a href="#">سامسونگ</a></li>
-                                                <li><a href="#">هوآوی</a></li>
-                                                <li><a href="#">اپل</a></li>
-                                                <li><a href="#">شیائومی</a></li>
-                                                <li><a href="#">آنر</a></li>
-                                                <li><a href="#">نوکیا</a></li>
-                                            </ul>
-                                            <a href="#">واقعیت مجازی</a>
-                                            <a href="#">مچ‌بند و ساعت هوشمند</a>
-                                        </li>
-                                        <li class="col-3">
-                                            <a href="#">هدفون، هدست، هندزفری</a>
-                                            <a href="#">اسپیکر بلوتوث و با سیم</a>
-                                            <a href="#">هارد، فلش و SSD</a>
-                                            <a href="#">دوربین</a>
-                                            <ul>
-                                                <li><a href="#">دوربین عکاسی دیجیتال</a></li>
-                                                <li><a href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
-                                                <li><a href="#">دوربین‌ چاپ سریع</a></li>
-                                            </ul>
-                                            <a href="#">لوازم جانبی دوربین</a>
-                                            <ul>
-                                                <li><a href="#">لنز</a></li>
-                                                <li><a href="#">کیف</a></li>
-                                                <li><a href="#">کارت حافظه</a></li>
-                                                <li><a href="#">کاغذ چاپ عکس</a></li>
-                                            </ul>
-                                            <a href="#">دوربین دوچشمی و شکاری</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fal fa-apple-crate text-warning"></i>سوپرمارکت</a>
-                        </li>
-                        <li class="mega-menu mega-menu-3-columns">
-                            <a href="#"><i class="fal fa-badge-percent text-danger"></i>تخفیف ها و پیشنهادها</a>
-                            <ul class="row">
-                                <li class="col-7">
-                                    <a href="#">مشاهده همه تخفیف ها و پیشنهادها <i class="fad fa-chevron-left"></i></a>
-                                    <ul class="row">
-                                        <li class="col-6">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        کالاهای شگفت انگیز <i class="fad fa-chevron-left"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        شگفت انگیز سوپرمارکتی <i class="fad fa-chevron-left"></i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="#">فروش ویژه <i class="fad fa-chevron-left"></i></a></li>
-                                                <li><a href="#">کالای دیجیتال</a></li>
-                                                <li><a href="#">مد و پوشاک</a></li>
-                                                <li><a href="#">زیبایی و سلامت</a></li>
-                                                <li><a href="#">خانه و آشپزخانه</a></li>
-                                                <li><a href="#">ورزش و سفر</a></li>
-                                                <li><a href="#">خوردنی و آشامیدنی</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="col-6">
-                                            <ul>
-                                                <li>
-                                                    <a href="#" class="text-sm text-muted">
-                                                        <i class="fad fa-chart-line"></i>
-                                                        پرفروش ترین کالاها
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="text-sm text-muted">
-                                                        <i class="fad fa-gift"></i>
-                                                        با هر
-                                                        خرید هدیه بگیرید!
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="text-sm text-muted">
-                                                        <i class="fad fa-badge-percent"></i>
-                                                        تخفیف پایان فصل
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="text-sm text-muted">
-                                                        <i class="fad fa-gift-card"></i> کارت
-                                                        هدیه خرید از همتا
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="text-sm text-muted">
-                                                        <i class="fad fa-box-alt"></i> تازه
-                                                        های فروشنده های جدید
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="col-5">
-                                    <a href="#">
-                                        <img src="~/Theme/assets/images/mega-menu/amazing-offer.jpg" class="rounded"
-                                             alt="amazing-offer">
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fal fa-shield-check text-success"></i>همتای من</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fal fa-plus-square text-primary"></i>همتا پلاس</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fal fa-coin text-secondary"></i>همتا کلاب</a>
-                        </li>
-                        <li>
-                            <a href="#"><i></i>سوال دارید؟</a>
+                            <menu-item></menu-item>
                         </li>
                     </ul>
                 </nav>
+
+
+
             </div>
         </header>
         <!-- header responsive -->
@@ -1309,7 +767,7 @@
                 <div class="row text-center">
                     <div class="col-12">
                         <div class="copy-right" dir="ltr">
-                            <p>© All rights reserved</p>
+                            <p>© All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -1319,10 +777,8 @@
 
     </div>
 
-    @await RenderSectionAsync("Scripts",required:false);
-	<!--SignalkR-->
-	<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/SignalROnlineVisitorService.js"></script>
+
+
     <!-- JS Global Compulsory -->
     <script src="~/Theme/assets/js/jquery-3.5.1.min.js"></script>
     <script src="~/Theme/assets/js/plugins/popper.min.js"></script>
@@ -1344,6 +800,11 @@
     <script src="~/Theme/assets/js/theme.js"></script>
     <!-- Here goes your custom.js -->
     <script src="~/Theme/assets/js/custom.js"></script>
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/SignalROnlineVisitorService.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Shop.Application.Catalogs.CatalogTypes;
+using Shop.Application.Catalogs.CatalogTypes.CrudService;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Visitors.GetTodayReport;
 using Shop.Application.Visitors.VisitorOnline;

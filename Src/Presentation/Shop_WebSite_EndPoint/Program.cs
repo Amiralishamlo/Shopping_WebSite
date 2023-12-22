@@ -1,9 +1,11 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Shop.Application.Catalogs.GetMenuItem;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Visitors.SaveVisitorInfo;
 using Shop.Application.Visitors.VisitorOnline;
 using Shop.Infrastructure.IdentityConfig;
+using Shop.Infrastructure.MappingProfile;
 using Shop.Persistence.Context;
 using Shop.Persistence.Context.MongoContext;
 using Shop_WebSite_EndPoint.Hubs;
@@ -38,6 +40,9 @@ builder.Services.AddTransient<ISaveVisitorInfoService, SaveVisitorInfoService>()
 builder.Services.AddScoped<SaveVisitorFilter>();
 builder.Services.AddSignalR();
 builder.Services.AddTransient<IVisitorOnlineService, VisitorOnlineService>();
+builder.Services.AddScoped<IGetMenuItemService, GetMenuItemService>();
+//mapper
+builder.Services.AddAutoMapper(typeof(CatalogMappingProfile));
 #endregion
 
 
