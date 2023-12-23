@@ -1,4 +1,7 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Shop.Application.Catalogs.CatalogItems.AddNewCatalogItem;
+using Shop.Application.Catalogs.CatalogItems.CatalogItemServices;
 using Shop.Application.Catalogs.CatalogTypes.CrudService;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Visitors.GetTodayReport;
@@ -39,6 +42,11 @@ builder.Services.AddTransient<ICatalogService, CatalogService>();
 #region Mapper_Service
 builder.Services.AddAutoMapper(typeof(CatalogMappingProfile));
 builder.Services.AddAutoMapper(typeof(CatalogVMMappingProfile));
+builder.Services.AddScoped<IAddNewCatalogItemService, AddNewCatalogItemService>();
+builder.Services.AddScoped<ICatalogItemService, CatalogItemService>();
+#endregion
+#region AddService_FluentValidation
+builder.Services.AddTransient<IValidator<AddNewCaatalogItemDto>, AddNewCaatalogItemDtoValidator>();
 #endregion
 
 var app = builder.Build();

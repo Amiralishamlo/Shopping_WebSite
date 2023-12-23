@@ -1,6 +1,6 @@
 ﻿namespace Shop.Application.Dtos
 {
-    public class BaseDto<T> where T : class
+    public class BaseDto<T> 
     {
         public BaseDto(T data, List<string> message, bool isSuccess)
         {

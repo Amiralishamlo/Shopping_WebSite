@@ -1,0 +1,296 @@
+﻿@page
+@model Shop_Admin_EndPoint.Pages.CatalogItems.CreateModel
+@{
+}
+<section class="card">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title mb-0">افزودن کاتالوگ جدید</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="createForm" class="form" asp-antiforgery="true" onsubmit="return sendDataToServer(event)">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput">نام کاتالوگ </label>
+                                    <input type="text" asp-for="Data.Name" class="form-control" id="Name">
+                                    <span asp-validation-for="Data.Name" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> برند </label>
+                                    <select class="form-control" id="Brand" asp-items="@Model.Brands"></select>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput">دسته بندی </label>
+
+                                    <select class="form-control" id="Category" asp-items="Model.Categories"></select>
+                                </fieldset>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> تعداد موجودی</label>
+                                    <input type="number" asp-for="Data.AvailableStock" class="form-control" id="AvailableStock">
+                                    <span asp-validation-for="Data.AvailableStock" class="text-danger"></span>
+
+                                </fieldset>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput">حداقل برای سفارش مجدد</label>
+                                    <input type="number" asp-for="Data.RestockThreshold" class="form-control" id="RestockThreshold">
+                                    <span asp-validation-for="Data.RestockThreshold" class="text-danger"></span>
+
+                                </fieldset>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput">حداکثر توان ذخیره در انبار</label>
+                                    <input type="number" asp-for="Data.MaxStockThreshold" class="form-control" id="MaxStockThreshold">
+                                    <span asp-validation-for="Data.MaxStockThreshold" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> قیمت</label>
+                                    <input type="number" asp-for="Data.Price" class="form-control" id="Price">
+                                    <span asp-validation-for="Data.Price" class="text-danger"></span>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput">تصاویر </label>
+                                    <input type="file" multiple class="form-control" accept="image/*" id="Images">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="card col-md-12">
+                            <div class="card-header col-md-12 row">
+                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <label for="basicInput"> نام گروه </label>
+                                        <input type="text" class="form-control" id="txtGroup" placeholder="نام گروه" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <label for="basicInput"> نام ویژگی </label>
+                                        <input type="text" class="form-control" id="txtDisplayName" placeholder="نام ویژگی" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <label for="basicInput"> مقدار ویژگی </label>
+                                        <input type="text" class="form-control" id="txtValue" placeholder="مقدار ویژگی" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <br />
+                                        <a class="btn btn-success" id="btnAddFeatures">افزودن</a>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="card-body col-md-12">
+                                <table id="tbl_Features" class="col-md-12 table table-bordered table-hover  table-condensed table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                گروه
+                                            </th>
+                                            <th>
+                                                نام ویژگی
+                                            </th>
+                                            <th>
+                                                مقدار ویژگی
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card col-md-12 row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> توضیحات</label>
+                                    <textarea id="Description" asp-for="Data.Description" class="form-control " rows="5"></textarea>
+                                    <span asp-validation-for="Data.Description" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                            <fieldset class="form-group">
+                                <button type="submit" class="btn btn-success col-md-12"> ثبت کاتالوگ</button>
+                            </fieldset>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</section>
+
+@section Scripts {
+
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://cdn.ckeditor.com/4.13.0/standard-all/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Description', {
+            language: 'fa',
+            contentsLangDirection: 'rtl',
+            height: 270,
+        });
+    </script>
+
+    <script>
+
+        $("#btnAddFeatures").on("click", function () {
+            var txtDisplayName = $("#txtDisplayName").val();
+            var txtValue = $("#txtValue").val();
+            var txtGroup = $("#txtGroup").val();
+
+            if (txtDisplayName == "" || txtValue == "" || txtGroup == "") {
+                swal.fire(
+                    'هشدار!',
+                    "نام گروه - نام ویزگی و مقدار اجباری هستند",
+                    'warning'
+                );
+            }
+            else {
+                $('#tbl_Features tbody').append('<tr><td>' + txtGroup + '</td>  <td>' + txtDisplayName + '</td>  <td>' + txtValue + '</td> <td> <a class="idFeatures btnDelete btn btn-danger"> حذف </a> </td> </tr>');
+                $("#txtDisplayName").val('');
+                $("#txtValue").val('');
+            }
+        });
+
+        $("#tbl_Features").on('click', '.idFeatures', function () {
+            $(this).closest('tr').remove();
+        });
+
+        function sendDataToServer(e) {
+            e.preventDefault();
+            var form = $("#createForm");
+            form.validate();
+            if (form.valid() == false) {
+                swal.fire(
+                    'هشدار!',
+                    "اطلاعات فرم به درستی وارد نشده است!",
+                    'warning'
+                );
+                return false;
+            }
+
+            var data = new FormData();
+            //دریافت مقادیر از تکس باکس ها و....
+            data.append("Name", $("#Name").val());
+            data.append("AvailableStock", $("#AvailableStock").val());
+            data.append("RestockThreshold", $("#RestockThreshold").val());
+            data.append("MaxStockThreshold", $("#MaxStockThreshold").val());
+            data.append("Price", $("#Price").val());
+            data.append("Description", $("#Description").val());
+
+            data.append("CatalogTypeId", $('#Category').find('option:selected').val());
+            data.append("CatalogBrandId", $('#Brand').find('option:selected').val());
+
+            //دریافت عکس های انتخاب شده توسط کاربر و قرار دادن عکس ها در متغیر data
+            var catalogImages = document.getElementById("Images");
+            if (catalogImages.files.length > 0) {
+                for (var i = 0; i < catalogImages.files.length; i++) {
+                    data.append('Images-' + i, catalogImages.files[i]);
+                }
+            }
+
+            //دریافت ویژگی های محصول از جدول
+            var dataFeaturesViewModel = $('#tbl_Features tr:gt(0)').map(function () {
+                return {
+                    Group: $(this.cells[0]).text(),
+                    DisplayName: $(this.cells[1]).text(),
+                    Value: $(this.cells[2]).text(),
+                };
+            }).get();
+
+            $.each(dataFeaturesViewModel, function (i, val) {
+                data.append('Features[' + i + '].Group', val.Group);
+                data.append('Features[' + i + '].DisplayName', val.DisplayName);
+                data.append('Features[' + i + '].Value', val.Value);
+            });
+
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: "/catalogitems/create",
+                contentType: false,
+                processData: false,
+                data: data,
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                success: function (data) {
+                    if (data.isSuccess == true) {
+                        swal.fire(
+                            'موفق!',
+                            'کاتالوگ با موفقیت ثبت شد',
+                            'success'
+                        ).then(function (isConfirm) {
+                            window.location.href = "/catalogitems";
+                        });
+                    }
+                    else {
+                        swal.fire(
+                            'هشدار!',
+                             "دیتا ثبت نشد",
+                            'warning'
+                        );
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+
+            ajaxRequest.done(function (xhr, textStatus) {
+                // Do other operation
+            });
+
+        }
+
+
+
+
+    </script>
+}

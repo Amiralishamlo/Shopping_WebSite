@@ -14,6 +14,9 @@ namespace Shop.Persistence.Context
         {
             
         }
+        public DbSet<CatalogItemImage> CatalogItemImages { get; set; }
+        public DbSet<CatalogItemFeature> CatalogItemFeatures { get; set; }
+        public DbSet<CatalogItem> CatalogItems { get; set; }
         public DbSet<CatalogBrand> CatalogBrands { get; set; }
         public DbSet<CatalogType> CatalogTypes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
