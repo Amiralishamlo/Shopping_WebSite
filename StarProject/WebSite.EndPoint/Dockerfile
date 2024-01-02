@@ -8,17 +8,17 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Src/Presentation/Shop_WebSite_EndPoint/Shop_WebSite_EndPoint.csproj", "Src/Presentation/Shop_WebSite_EndPoint/"]
-RUN dotnet restore "./Src/Presentation/Shop_WebSite_EndPoint/./Shop_WebSite_EndPoint.csproj"
+COPY ["Src/Presentation/WebSite.EndPoint/WebSite.EndPoint.csproj", "Src/Presentation/WebSite.EndPoint/"]
+RUN dotnet restore "./Src/Presentation/WebSite.EndPoint/./WebSite.EndPoint.csproj"
 COPY . .
-WORKDIR "/src/Src/Presentation/Shop_WebSite_EndPoint"
-RUN dotnet build "./Shop_WebSite_EndPoint.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Src/Presentation/WebSite.EndPoint"
+RUN dotnet build "./WebSite.EndPoint.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Shop_WebSite_EndPoint.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./WebSite.EndPoint.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Shop_WebSite_EndPoint.dll"]
+ENTRYPOINT ["dotnet", "WebSite.EndPoint.dll"]
