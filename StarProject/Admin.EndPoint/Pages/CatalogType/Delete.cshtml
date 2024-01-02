@@ -1,0 +1,34 @@
+﻿@page
+@model Admin.EndPoint.Pages.CatalogType.DeleteModel
+@{
+}
+<div class="col-lg-12 col-12 layout-spacing">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4> حذف دسته بندی </h4>
+                </div>
+            </div>
+        </div>
+        <div class="widget-content widget-content-area">
+            <form asp-page="delete" method="post">
+                @if (Model.Message != null)
+                {
+                    @foreach (var item in Model.Message)
+                    {
+                        <div class="alert alert-info">
+                            <p>@item</p>
+                        </div>
+                    }
+                }
+
+                <h1>آیا از حذف دسته @Model.CatalogType.Type  مطمئن هستید؟</h1>
+
+                <input type="hidden" asp-for="CatalogType.Id" />
+                <input type="submit" name="time" value="بله" class="btn btn-danger">
+                <a asp-page="index" class="btn btn-info">خیر</a>
+            </form>
+        </div>
+    </div>
+</div>

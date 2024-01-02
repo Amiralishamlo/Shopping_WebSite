@@ -1,0 +1,74 @@
+﻿@page
+@model Admin.EndPoint.Pages.CatalogType.IndexModel
+@{
+}
+
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+            <div class="widget-content widget-content-area br-6">
+                <div class="table-responsive mb-4 mt-4">
+                    <div id="html5-extension_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="dt-buttons">
+                                            <a asp-page="create" class="dt-button buttons-print btn" tabindex="0" aria-controls="html5-extension">
+                                                <span>ثبت جدید</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <table id="html5-extension" class="table table-hover non-hover dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="html5-extension_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="html5-extension" rowspan="1" colspan="1" style="width: 128px;" aria-sort="ascending" aria-label=": activate to sort column descending">شناسه</th>
+                                            <th class="sorting" tabindex="0" aria-controls="html5-extension" rowspan="1" colspan="1" style="width: 287px;" aria-label="  : activate to sort column ascending"> نام </th>
+                                            <th class="sorting" tabindex="0" aria-controls="html5-extension" rowspan="1" colspan="1" style="width: 69px;" aria-label=": activate to sort column ascending">تعداد - فرزند ها</th>
+                                            <th class="sorting" tabindex="0" aria-controls="html5-extension" rowspan="1" colspan="1" style="width: 172px;" aria-label=": activate to sort column ascending">عملیات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.CataolType.Data)
+                                        {
+                                            <tr role="row">
+                                                <td class="sorting_1"> @item.Id</td>
+                                                <td>  @item.Type </td>
+                                                <td> @item.SubTypeCount  </td>
+
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-dark btn-sm">بیشتر</button>
+                                                        <button type="button" class="btn btn-dark btn-sm dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference25" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference25">
+                                                            <a class="dropdown-item" asp-page="edit" asp-route-id="@item.Id">ویرایش</a>
+                                                            <a class="dropdown-item" asp-page="delete" asp-route-id="@item.Id">حذف</a>
+                                                            <a class="dropdown-item" asp-page="create" asp-route-parentId="@item.Id">افزودن فرزند</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" asp-page="index" asp-route-parentid="@item.Id">لیست فرزند ها</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+
+
+
+                                    </tbody>
+                                </table>
+                            </div><div class="col-md-12"><div class="row"><div class="col-md-5"><div class="dataTables_info" id="html5-extension_info" role="status" aria-live="polite">صفحه 1 از 4</div></div><div class="col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="html5-extension_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="html5-extension_previous"><a href="#" aria-controls="html5-extension" data-dt-idx="0" tabindex="0" class="page-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="html5-extension" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="html5-extension" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="html5-extension" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="html5-extension" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item next" id="html5-extension_next"><a href="#" aria-controls="html5-extension" data-dt-idx="5" tabindex="0" class="page-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li></ul></div></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
