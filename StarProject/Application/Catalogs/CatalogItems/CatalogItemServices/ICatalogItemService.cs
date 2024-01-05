@@ -1,5 +1,7 @@
-﻿using Application.Interfaces.Contexts;
+﻿using Application.Dtos;
+using Application.Interfaces.Contexts;
 using AutoMapper;
+using Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace Application.Catalogs.CatalohItems.CatalogItemServices
     {
         List<CatalogBrandDto> GetBrand();
         List<ListCatalogTypeDto> GetCatalogType();
+        PaginatedItemsDto<CatalogItemListItemDto> CatalogItemListItem(int page,int pageSize);
     }
     public class CatalogItemService : ICatalogItemService
     {
@@ -24,6 +27,26 @@ namespace Application.Catalogs.CatalohItems.CatalogItemServices
         {
             this.context = context;
             this.mapper = mapper;
+        }
+
+        public PaginatedItemsDto<CatalogItemListItemDto> CatalogItemListItem(int page, int pageSize)
+        {
+            int rowCount = 0;
+            var catalogItem = context.CatalogItems.Include(x => x.CatalogType)
+                .Include(x => x.CatalogBrand).ToPaged(page, pageSize, out rowCount)
+                .OrderByDescending(x=>x.Id)
+                .Select(x =>new CatalogItemListItemDto
+                {
+                    Id = x.Id,
+                    Brand=x.CatalogBrand.Brand,
+                    Type=x.CatalogType.Type,
+                    AvailableStock=x.AvailableStock,
+                    MaxStockThreshold=x.MaxStockThreshold,
+                    Name=x.Name,
+                    Price=x.Price,
+                    RestockThreshold = x.RestockThreshold
+                }).ToList();
+            return new PaginatedItemsDto<CatalogItemListItemDto>(page, pageSize,rowCount,catalogItem);
         }
 
         public List<CatalogBrandDto> GetBrand()
@@ -63,5 +86,16 @@ namespace Application.Catalogs.CatalohItems.CatalogItemServices
     {
         public int Id { get; set; }
         public string Type { get; set; }
+    }
+    public class CatalogItemListItemDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public string Type { get; set; }
+        public string Brand { get; set; }
+        public int AvailableStock { get; set; }
+        public int RestockThreshold { get; set; }
+        public int MaxStockThreshold { get; set; }
     }
 }

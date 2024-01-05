@@ -1,0 +1,312 @@
+﻿@using Application.Catalogs.CatalogItems.GetCatalogItemPLP;
+@using Application.Dtos;
+@model PaginatedItemsDto<CatalogPLPDto>
+@{
+    ViewData["Title"] = "لیست محصولات";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mb-5" style="transform: none;">
+    <div class="col-lg-3 col-md-4 sticky-sidebar filter-options-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+
+        <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+            <div class="d-md-none">
+                <div class="header-filter-options">
+                    <span>جستجوی پیشرفته <i class="fad fa-sliders-h"></i></span>
+                    <button class="btn-close-filter-sidebar"><i class="fal fa-times"></i></button>
+                </div>
+            </div><div class="sidebar-widget">
+                <div class="widget widget-filter-options shadow-around">
+                    <div class="widget-title">برند</div>
+                    <div class="search-in-options form-element-row">
+                        <div class="form-element-with-icon">
+                            <input type="text" class="input-element" placeholder="جستجوی نام برند...">
+                            <i class="fad fa-file-search"></i>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <label class="container-checkbox">
+                            سامسونگ
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            شیائومی
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            هوآوی
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            اپل
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            نوکیا
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            آنر
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            ال جی
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            ایسوس
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            سونی
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            گوگل
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            سونی اریکسون
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            جی ال ایکس
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="widget shadow-around">
+                    <div class="widget-content">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">
+                                فقط کالاهای موجود در
+                                انبار
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget shadow-around">
+                    <div class="widget-content">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                            <label class="custom-control-label" for="customSwitch2">فقط ارسال فوری</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget shadow-around">
+                    <div class="widget-title">محدوده قیمت</div>
+                    <div class="widget-content">
+                        <form action="#" class="filter-price">
+                            <div class="mt-2 mb-2">
+                                <div class="filter-slider">
+                                    <div id="slider-non-linear-step" class="price-slider noUi-target noUi-rtl noUi-horizontal"><div class="noUi-base"><div class="noUi-connects"><div class="noUi-connect" style="transform: translate(0%) scale(1);"></div></div><div class="noUi-origin" style="transform: translate(0%); z-index: 5;"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="17700000.0" aria-valuenow="0.0" aria-valuetext="0"><div class="noUi-touch-area"></div></div></div><div class="noUi-origin" style="transform: translate(-1000%); z-index: 4;"><div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="17700000.0" aria-valuenow="17700000.0" aria-valuetext="17,700,000"><div class="noUi-touch-area"></div></div></div></div></div>
+                                </div>
+                                <ul class="filter-range">
+                                    <li data-label="از" data-currency=" تومان">
+                                        <input type="text" data-value="0" value="0" name="price[min]" data-range="0" class="js-slider-range-from disabled example-val" id="skip-value-lower" disabled="disabled">
+                                    </li>
+                                    <li data-label="تا" data-currency="تومان">
+                                        <input type="text" data-value="17700000" value="17700000" name="price[max]" data-range="17700000" class="js-slider-range-to disabled example-val" id="skip-value-upper" disabled="disabled">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <button class="btn btn-primary d-inline-flex align-items-center">
+                                    <i class="fad fa-funnel-dollar ml-2"></i>
+                                    اعمال محدوده قیمت
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="widget widget-filter-options shadow-around">
+                    <div class="widget-title">رنگ</div>
+                    <div class="search-in-options form-element-row">
+                        <div class="form-element-with-icon">
+                            <input type="text" class="input-element" placeholder="جستجوی نام رنگ...">
+                            <i class="fad fa-file-search"></i>
+                        </div>
+                    </div>
+                    <div class="widget-content pl-3">
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>مشکی</span>
+                                <span class="color-option" style="background-color: #000;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>آبی</span>
+                                <span class="color-option" style="background-color: #0000ff;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>خاکستری</span>
+                                <span class="color-option" style="background-color: #808080;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>سفید</span>
+                                <span class="color-option" style="background-color: #fff;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>سبز</span>
+                                <span class="color-option" style="background-color: #008000;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>قرمز</span>
+                                <span class="color-option" style="background-color: #f44336;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>طلایی</span>
+                                <span class="color-option" style="background-color: #c99212;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>نقره ای</span>
+                                <span class="color-option" style="background-color: #dedede;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>زرد</span>
+                                <span class="color-option" style="background-color: #ffff00;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container-checkbox">
+                            <span class="d-flex justify-content-between align-items-center">
+                                <span>بنفش</span>
+                                <span class="color-option" style="background-color: #800080;"></span>
+                            </span>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="d-md-none">
+                    <button class="btn-filter-product-submit">جستجوی پیشرفته</button>
+                </div>
+            </div><div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 347px; height: 1484px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-8">
+        <div class="d-md-none">
+            <button class="btn-filter-sidebar">
+                جستجوی پیشرفته <i class="fad fa-sliders-h"></i>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- breadcrumb -->
+                <div class="breadcrumb mb-2 pt-2">
+                    <nav>
+                        <a href="#">فروشگاه اینترنتی</a>
+                        <a href="#">کتاب، لوازم تحریر و هنر</a>
+                        <a href="#">لوازم تحریر</a>
+                    </nav>
+                </div>
+                <!-- end breadcrumb -->
+            </div>
+        </div>
+        <div class="listing-items row">
+
+            @foreach (var item in Model.Data)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 px-0">
+                    <div class="product-card">
+                        <div class="product-card-top">
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="product-image">
+                                <img src="@item.Image" alt="@item.Name">
+                            </a>
+                            <div class="product-card-actions">
+                                <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
+                                <button class="add-to-compare"><i class="fas fa-random"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-card-middle">
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    @{
+                                        int rate = item.Rate * 20;
+                                    }
+                                    <div class="ratings-val" style="width: @rate%;"></div>
+                                </div>
+                            </div>
+                            <h6 class="product-name">
+                                <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">
+                                    @item.Name
+                                </a>
+                            </h6>
+                            <div class="product-price product-price-clone">@item.Price.ToString("n0") تومان</div>
+                        </div>
+                        <div class="product-card-bottom">
+                            <div class="product-price">
+                                @item.Price.ToString("n0")  تومان
+                            </div>
+                            <a href="#" class="btn-add-to-cart">
+                                <i class="fad fa-cart-plus"></i>
+                                افزودن به سبد خرید
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <div class="col-12 px-0">
+                <div class="pagination">
+                    <a href="#" class="prev"><i class="far fa-arrow-from-left"></i></a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#" class="current">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#" class="next"><i class="far fa-arrow-to-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -16,6 +16,9 @@ using System;
 using Microsoft.Extensions.Hosting;
 using WebSite.EndPoint.Utilities.Middlewares;
 using Microsoft.Extensions.Configuration;
+using Application.Catalogs.CatalogItems.GetCatalogItemPLP;
+using Application.Catalogs.CatalogItems.UnComposer;
+using Application.Catalogs.CatalogItems.GetCatalogItemPDP;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +50,9 @@ builder.Services.AddScoped<SaveVisitorFilter>();
 builder.Services.AddSignalR();
 builder.Services.AddTransient<IIVisitorOnlineService, VisitorOnlineService>();
 builder.Services.AddScoped<IGetMenuItemService, GetMenuItemService>();
+builder.Services.AddScoped<IUriComposerService, UriComposerService>();
+builder.Services.AddScoped<IGetCatalogItemPLPService, GetCatalogItemPLPService>();
+builder.Services.AddScoped<IGetCatalogItemPDPService, GetCatalogItemPDPService>();
 //mapper
 builder.Services.AddAutoMapper(typeof(CatalogMappingProfile));
 #endregion

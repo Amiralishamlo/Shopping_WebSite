@@ -17,7 +17,7 @@ namespace Application.Visitors.SaveVisitorInfo
         }
         public void Execute(RequestSaveVisitorInfoDto request)
         {
-            _visitorMongoCollection.InsertOne(new Visitor
+           _visitorMongoCollection.InsertOne(new Visitor
             {
                 Browser = new VisitorVersion
                 {
