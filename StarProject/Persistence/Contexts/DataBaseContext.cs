@@ -1,16 +1,12 @@
 ﻿using Application.Interfaces.Contexts;
 using Domain.Attributes;
+using Domain.Baskets;
 using Domain.Catalogs;
-using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Persistence.EntityConfigurations;
 using Persistence.Seeds;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Persistence.Contexts
 {
@@ -23,6 +19,8 @@ namespace Persistence.Contexts
         public DbSet<CatalogBrand> CatalogBrands { get; set; }
         public DbSet<CatalogType> CatalogTypes { get; set; }
         public DbSet<CatalogItem> CatalogItems { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

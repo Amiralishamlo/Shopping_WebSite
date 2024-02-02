@@ -22,7 +22,5 @@ namespace WebSite.EndPoint.Models.ViewModels.User
         public bool IsPersistent { get; set; } = false;
 
         public string ReturnUrl { get; set; }
-
-
     }
 }
